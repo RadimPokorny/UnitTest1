@@ -18,8 +18,8 @@ namespace UnitTest1
 
         enum Status
         {
-            obchodník, 
-            nepřítel, 
+            obchodník,
+            nepřítel,
             obyvatel
         }
 
@@ -30,10 +30,23 @@ namespace UnitTest1
             Assert.IsFalse(name.Length >= 10);
         }
         [TestMethod]
+        public void Test_NameFormat()
+        {
+            string name = "Oškyy";
+            Assert.IsFalse(name[0] >= 'a' && name[0] <= 'z');
+        }
+
+        [TestMethod]
         public void Test_Level()
         {
             int level = 6;
             Assert.IsFalse(level > 1);
+        }
+        [TestMethod]
+        public void Test_NotLyceista()
+        {
+            string input = "SexyITejoyer";
+            Assert.IsFalse(input == "lyceista");
         }
         [TestMethod]
 
@@ -51,7 +64,13 @@ namespace UnitTest1
             }
             Assert.AreSame(itiswhatitis, true);
         }
-
+        [TestMethod]
+        public void Test_LevelIncrease()
+        {
+            int levelInput = 5;
+            int leverAfterXp = 5;
+            Assert.IsFalse(levelInput == leverAfterXp);
+        }
         [TestMethod]
         public void Test_IsCharacterBoss()
         {
@@ -68,6 +87,13 @@ namespace UnitTest1
 
             Assert.IsFalse(xpAmount > 100);
 
+        }
+        [TestMethod]
+        public void Test_LessOfXp()
+        {
+            int xpAmount = 99;
+
+            Assert.IsTrue(xpAmount < 100);
         }
 
         [TestMethod]
@@ -96,15 +122,15 @@ namespace UnitTest1
         [TestMethod]
         public void Test_NPCtype()
         {
-            
-            Assert.IsTrue(Status.obchodník,Status.nepřítel);
+
+            Assert.IsTrue(Status.obchodník == Status.nepřítel);
 
         }
         [TestMethod]
         public void Test_NPCtype2()
         {
 
-            Assert.IsTrue(Status.nepřítel, Status.obyvatel);
+            Assert.IsTrue(Status.nepřítel == Status.obyvatel);
 
         }
         [TestMethod]
@@ -122,17 +148,22 @@ namespace UnitTest1
 
         }
         [TestMethod]
+        public void Test_PlayerIsNotAdvaced()
+        {
+            int level = 0;
+            Assert.IsTrue(level < 1);
+        }
+        [TestMethod]
         public void Test_isPosChanged()
         {
             bool move = true;
             Assert.IsTrue(move == false);
-
         }
         [TestMethod]
         public void Test_ExpectedTrait2()
         {
 
-            Assert.IsTrue(Face.Makeup, Face.Usoplesk);
+            Assert.IsTrue(Face.Makeup == Face.Usoplesk);
 
         }
         [TestMethod]
@@ -140,7 +171,7 @@ namespace UnitTest1
         {
 
             string message = "Toto NPCčko je nepřítel kouzelník s blonďatým drdolem a chce tě zavraždit, jelikož je boss";
-            Assert.IsTrue(message.Lentgh > 30);
+            Assert.IsTrue(message.Length > 30);
 
         }
 
@@ -150,10 +181,5 @@ namespace UnitTest1
 
 
     }
-    
+
 }
-    
-    
-
-
-
