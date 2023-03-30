@@ -16,6 +16,13 @@ namespace UnitTest1
             Makeup
         }
 
+        enum Status
+        {
+            obchodník, 
+            nepřítel, 
+            obyvatel
+        }
+
         [TestMethod]
         public void Test_LengthyName()
         {
@@ -67,7 +74,7 @@ namespace UnitTest1
 
         public void Test_ExpectedTrait()
         {
-            Assert.AreEqual("Klaun", Face.Makeup);
+            Assert.AreEqual(Face.Velkynos, Face.Makeup);
         }
 
         [TestMethod]
@@ -86,6 +93,60 @@ namespace UnitTest1
             Assert.IsTrue(posX == 0);
 
         }
+        [TestMethod]
+        public void Test_NPCtype()
+        {
+            
+            Assert.IsTrue(Status.obchodník,Status.nepřítel);
+
+        }
+        [TestMethod]
+        public void Test_NPCtype2()
+        {
+
+            Assert.IsTrue(Status.nepřítel, Status.obyvatel);
+
+        }
+        [TestMethod]
+        public void Test_isXPdefault()
+        {
+            int xp = 133;
+            Assert.IsTrue(xp == 0);
+
+        }
+        [TestMethod]
+        public void Test_isPlayerAdvanced()
+        {
+            int level = 42069;
+            Assert.IsTrue(level > 0);
+
+        }
+        [TestMethod]
+        public void Test_isPosChanged()
+        {
+            bool move = true;
+            Assert.IsTrue(move == false);
+
+        }
+        [TestMethod]
+        public void Test_ExpectedTrait2()
+        {
+
+            Assert.IsTrue(Face.Makeup, Face.Usoplesk);
+
+        }
+        [TestMethod]
+        public void Test_isOutputStringLong()
+        {
+
+            string message = "Toto NPCčko je nepřítel kouzelník s blonďatým drdolem a chce tě zavraždit, jelikož je boss";
+            Assert.IsTrue(message.Lentgh > 30);
+
+        }
+
+
+
+
 
 
     }
